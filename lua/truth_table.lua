@@ -25,7 +25,8 @@ local function print_table(num_table, num_outputs, separator)
     table.insert(output_list, "X")
   end
   for i = 1, #num_table do
-    table.insert(lines_list, vim.fn.join(reversed(num_table[i]), separator) .. separator .. vim.fn.join(output_list, separator))
+    table.insert(lines_list, vim.fn.join(reversed(num_table[i]), separator) ..
+      string.rep(separator .. "X", num_outputs))
   end
   vim.api.nvim_paste(vim.fn.join(lines_list, "\n"), 'CR', 1)
 end
