@@ -17,8 +17,10 @@ nmap <LocalLeader>t <CMD>lua require('truth_table')(vim.fn.input("separator: "))
 autocmd FileType markdown nmap <buffer> <LocalLeader>t <CMD>lua require('truth_table')(" | ")<CR>
 ```
 
-Best served with one of:
+Best served with:
 
-- [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode)
-- [coc-prettier](https://github.com/neoclide/coc-prettier)
-- another lsp provider such as [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [diagnostic-languageserver + prettier](https://github.com/iamcco/diagnostic-languageserver/wiki/Formatters#prettier)
+- one of:
+  - [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode)
+  - [coc-prettier](https://github.com/neoclide/coc-prettier)
+  - another lsp provider such as [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [diagnostic-languageserver + prettier](https://github.com/iamcco/diagnostic-languageserver/wiki/Formatters#prettier)
+- [vim-surround](https://github.com/tpope/vim-surround) for adding borders (use blockwise-visual mode and `S`)
