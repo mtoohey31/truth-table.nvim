@@ -18,7 +18,7 @@ local function reversed(tbl)
   return reversed_list
 end
 
-local function print_table(num_table, num_outputs, separator)
+local function print_table(num_table, num_outputs, separator, left_border, right_border)
   local lines_list = {}
   local output_list = {}
   for _ = 1, num_outputs do
@@ -28,17 +28,23 @@ local function print_table(num_table, num_outputs, separator)
     table.insert(lines_list, vim.fn.join(reversed(num_table[i]), separator) ..
       string.rep(separator .. "X", num_outputs))
   end
-  vim.api.nvim_paste(vim.fn.join(lines_list, "\n"), 'CR', 1)
+  vim.api.nvim_paste(left_border .. vim.fn.join(lines_list, right_border .. "\n" .. left_border) .. right_border, 'CR', 1)
 end
 
-return function (separator)
+return function (separator, left_border, right_border)
   if separator == nil then
     separator = " "
+  end
+  if left_border == nil then
+    left_border = ""
+  end
+  if right_border == nil then
+    right_border = ""
   end
   local inputs = tonumber(vim.fn.input("number of inputs: "))
   local outputs = tonumber(vim.fn.input("number of outputs: "))
   local num_table = {{"0"}, {"1"}}
-  for i = 2, inputs do
+  for _ = 2, inputs do
     local num_table_copy = deep_copy(num_table)
 
     for j = 1, #num_table do
@@ -49,5 +55,5 @@ return function (separator)
       table.insert(num_table, num_table_copy[j])
     end
   end
-  print_table(num_table, outputs, separator)
+  print_table(num_table, outputs, separator, left_border, right_border)
 end

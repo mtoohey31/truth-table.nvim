@@ -13,8 +13,8 @@ call plug#end()
 
 " In a buffer of no specific filetype, prompt the user to input the separator
 nmap <LocalLeader>t <CMD>lua require('truth_table')(vim.fn.input("separator: "))<CR>
-" In a markdown buffer, use ' | ' for the separator
-autocmd FileType markdown nmap <buffer> <LocalLeader>t <CMD>lua require('truth_table')(" | ")<CR>
+" In a markdown buffer, use ' | ' for the separator, '| ' for the left border, and ' |' for the right border
+autocmd FileType markdown nmap <buffer> <LocalLeader>t <CMD>lua require('truth_table')(" <BAR> ", "<BAR> ", " <BAR>")<CR>
 ```
 
 Best served with:
@@ -23,4 +23,3 @@ Best served with:
   - [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode)
   - [coc-prettier](https://github.com/neoclide/coc-prettier)
   - another lsp provider such as [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [diagnostic-languageserver + prettier](https://github.com/iamcco/diagnostic-languageserver/wiki/Formatters#prettier)
-- [vim-surround](https://github.com/tpope/vim-surround) for adding borders (use blockwise-visual mode and `S`)
