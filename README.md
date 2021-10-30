@@ -1,3 +1,5 @@
+<!-- cSpell:ignore nvim mtoohey neovim nmap autocmd lspconfig -->
+
 # `truth-table.nvim`
 
 A tiny lua plugin for generating [truth tables](https://en.wikipedia.org/wiki/Truth_table) in Neovim.
@@ -17,9 +19,8 @@ nmap <LocalLeader>t <CMD>lua require('truth_table')(vim.fn.input("separator: "))
 autocmd FileType markdown nmap <buffer> <LocalLeader>t <CMD>lua require('truth_table')(" <BAR> ", "<BAR> ", " <BAR>")<CR>
 ```
 
-Best served with:
+Best served with one of:
 
-- one of:
-  - [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode)
-  - [coc-prettier](https://github.com/neoclide/coc-prettier)
-  - another lsp provider such as [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [diagnostic-languageserver + prettier](https://github.com/iamcco/diagnostic-languageserver/wiki/Formatters#prettier)
+- [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode)
+- [coc-prettier](https://github.com/neoclide/coc-prettier)
+- another lsp provider such as [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [diagnostic-languageserver + prettier](https://github.com/iamcco/diagnostic-languageserver/wiki/Formatters#prettier)
